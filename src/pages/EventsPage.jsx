@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const EventsPage = () => {
 
@@ -22,11 +23,11 @@ const EventsPage = () => {
     <>
       <h1>Events Page</h1>
       <ul>
-        {
-          eventList.map(ev => (
-            <li key={ev.id}>{ ev.title }</li>
-          ))
-        }
+      {eventList.map((ev) => (
+          <li key={ev.eventId}>
+            <Link to={`/events/${ev.eventId}`}>{ev.title}</Link>
+          </li>
+        ))}
       </ul>
       
     </>
