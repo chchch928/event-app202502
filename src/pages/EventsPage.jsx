@@ -34,7 +34,7 @@ export default EventsPage;
 
 // loader를 아웃소싱
 export const loader = async () =>{
-  const res = await fetch(`http://localhost:9000/api/events`);
+  const res = await fetch(`http://localhost:9000/api/events?sort=id`);
   // const jsonData = await res.json();
   
   //예외처리 
@@ -42,7 +42,7 @@ export const loader = async () =>{
     const jsonData = await res.json();
 
     throw new Response(
-      JSON.stringify(jsonData), // 에러메세지지
+      JSON.stringify(jsonData), // 에러메세지
       {
         status : res.status
       } // 에러정보 객체
