@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import EventList from "../components/EventList";
 
 const EventsPage = () => {
 
-  const [eventList, setEventList] = useState([]);
+  const eventList = useLoaderData();
 
-  useEffect(() => { 
+  // const [eventList, setEventList] = useState([]);
 
-    const fetchEvents = async () => { 
-      const response = await fetch(`http://localhost:9000/api/events`);
-      const responseData = await response.json();
+  // useEffect는 렌더링 이후에 실행됨됨
+  // useEffect(() => { 
 
-      setEventList(responseData);
-    };
+  //   const fetchEvents = async () => { 
+  //     const response = await fetch(`http://localhost:9000/api/events`);
+  //     const responseData = await response.json();
 
-    fetchEvents();
+  //     setEventList(responseData);
+  //   };
 
-  }, []);
+  //   fetchEvents();
+
+  // }, []);
+
+  
 
 
   return (
