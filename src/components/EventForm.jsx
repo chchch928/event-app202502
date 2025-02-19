@@ -10,6 +10,9 @@ const EventForm = ({method, event = {}}) => {
 
    // yyyy년 MM월 dd일 -> yyyy-MM-dd 로 변경
    const formatDate =(date) => {
+
+    if (!date) return;
+    
     const [yearPart, monthDayPart] =date.split('년 ');
     const [monthPart, dayPart] = monthDayPart.split('월 ');
 
@@ -94,7 +97,7 @@ const EventForm = ({method, event = {}}) => {
           type='date'
           name='date'
           required
-          defaultValue={event ? formatDate(date) : ''}
+          defaultValue={event.date ? formatDate(date) : ''}
         />
       </p>
       <p>
