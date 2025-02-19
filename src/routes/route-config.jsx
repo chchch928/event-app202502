@@ -6,7 +6,7 @@ import RootLayout from "../layout/rootLayout";
 import EventDetailPage, {loader as eventDetailLoader} from "../pages/EventDetailPage";
 import EventLayout from "../layout/EventLayout";
 import NewEventPage, {action as saveAction} from "../pages/NewEventPage";
-
+import EditPage from '../pages/EditPage';
 
 
 const router = createBrowserRouter([
@@ -40,6 +40,10 @@ const router = createBrowserRouter([
             path: ':eventId',
             element: <EventDetailPage />,
             loader: eventDetailLoader,
+          },
+          {
+            path: ':eventId/edit',
+            element: <EditPage />
           }
         ],
       }

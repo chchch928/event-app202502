@@ -1,7 +1,7 @@
 import { useNavigate, Form } from 'react-router-dom';
 import styles from './EventForm.module.scss';
 
-const EventForm = () => {
+const EventForm = ({method}) => {
 
    // 링크 이동시 새로고침 없이 이동하는 훅
    const navigate = useNavigate();
@@ -44,14 +44,14 @@ const EventForm = () => {
   // };
 
   // 2. action 함수를 트리거하려면 일단 리액트 라우터 돔에서 제공하는 Form을 사용하고
-  // 3. method 옵션을 설정함함
+  // 3. method 옵션을 설정함
 
 
   
 
   return (
     <Form
-      method='POST'
+      method={method}
       className={styles.form}
       noValidate
       // onSubmit={handleSubmit}
@@ -94,12 +94,9 @@ const EventForm = () => {
         />
       </p>
       <div className={styles.actions}>
-        <button
-          type='button'
-        >
-          Cancel
-        </button>
-        <button>Save</button>
+      <button type='button' onClick={() => navigate('..')}>Cancel</button>
+        <button>{method === 'POST' ? 'Save' : 'Modify'}</button>
+
       </div>
     </Form>
   );
