@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import EventList from "../components/EventList";
+import { EVENT_API_URL } from "../config/host-config";
 
 const EventsPage = () => {
 
@@ -34,7 +35,7 @@ export default EventsPage;
 
 // loader를 아웃소싱
 export const loader = async () =>{
-  const res = await fetch(`http://localhost:9000/api/events?sort=id`);
+  const res = await fetch(`${EVENT_API_URL}?sort=id`);
   // const jsonData = await res.json();
   
   //예외처리 
