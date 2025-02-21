@@ -33,7 +33,7 @@ const EmailInput = ({onSuccess}) => {
             setError(message);
         }
         else{
-            onSuccess(); // 상위컴포넌트 signUpForm에 다음스텝으로 넘어가도 된다고 알려줌
+            onSuccess(inputValue); // 상위컴포넌트 signUpForm에 다음스텝으로 넘어가도 된다고 알려줌
         }
         
     })();
